@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>Interactive Presentation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== Variables ===== */
+    :root {
+      --bg: #0f172a;
+      --card: #020617;
+      --border: #334155;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --accent: #facc15;
+    }
+
+    /* ===== Global Styles ===== */
+    * {
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: linear-gradient(135deg, #020617, #0f172a);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ===== Header ===== */
+    header {
+      padding: 22px 40px;
+      background: rgba(2,6,23,.85);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+      font-weight: 600;
+      letter-spacing: .5px;
+    }
+
+    /* ===== Main Content ===== */
+    main {
+      max-width: 1200px;
+      margin: auto;
+      padding: 40px 30px;
+    }
+
+    h1 {
+      font-size: 34px;
+      margin-bottom: 12px;
+    }
+
+    p {
+      margin-bottom: 28px;
+      color: var(--muted);
+      max-width: 600px;
+      line-height: 1.6;
+    }
+
+    /* ===== Card & iframe ===== */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 16px;
+      box-shadow: 0 30px 80px rgba(0,0,0,.65);
+      animation: fadeUp 1s ease;
+    }
+
+    iframe {
+      width: 100%;
+      height: 650px;
+      border: none;
+      border-radius: 14px;
+      background: black;
+    }
+
+    /* ===== Actions (Buttons) ===== */
+    .actions {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 12px;
+    }
+
+    button {
+      background: linear-gradient(135deg, var(--accent), #eab308);
+      border: none;
+      color: #000;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: .3s;
+      box-shadow: 0 5px 25px rgba(250,204,21,.4);
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 35px rgba(250,204,21,.55);
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* ===== Animations ===== */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ===== Responsive ===== */
+    @media(max-width: 768px) {
+      iframe {
+        height: 420px;
+      }
+      h1 {
+        font-size: 26px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  M&H • Présentation interactive
+</header>
+
+<main>
+  <h1>Présentation du projet</h1>
+  <p>
+    « Cet exposé vise à analyser les effets bénéfiques ainsi que les conséquences néfastes des actions humaines sur les sols. »
+  </p>
+
+  <div class="actions">
+    <button onclick="openFullScreen()">Plein écran</button>
+  </div>
+
+  <div class="card">
+    <iframe id="ppt" 
+      src="https://1drv.ms/p/c/01fe631e6b9ab51d/IQQB8l_7JSN0RLQtdgrFcFbJAXnKsyRZHrlrFXJs8TcsKLQ?em=2&amp;wdAr=1.7777777777777777" 
+      frameborder="0">
+      This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.
+    </iframe>
+  </div>
+</main>
+
+<footer>
+  © 2025 — Designed by M&H
+</footer>
+
+<script>
+  function openFullScreen() {
+    const iframe = document.getElementById("ppt");
+    if (iframe.requestFullscreen) {
+      iframe.requestFullscreen();
+    } else if (iframe.webkitRequestFullscreen) {
+      iframe.webkitRequestFullscreen();
+    } else if (iframe.msRequestFullscreen) {
+      iframe.msRequestFullscreen();
+    }
+  }
+</script>
+
+</body>
+</html>
